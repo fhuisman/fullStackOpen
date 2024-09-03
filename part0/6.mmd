@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: The browser prevents the default event handler of the notes form. It creates a new note and adds it to the notes list then redraws notes and sends the note to the server
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa Content-Type: 'application/json'
+    activate server
+    server-->>browser: 201 CREATED
+    deactivate server
